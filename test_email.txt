@@ -1,0 +1,11 @@
+﻿From: security@paypa1-confirm.com
+To: user@example.com
+Subject: Urgent: Verify Your PayPal Account Now!
+
+Dear user,
+
+We have detected suspicious activity on your PayPal account. You must verify your account immediately or it will be suspended.
+
+Click here: bit.ly/paypal-verify
+
+Act now!
