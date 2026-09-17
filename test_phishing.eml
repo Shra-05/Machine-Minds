@@ -1,0 +1,18 @@
+﻿From: attacker@malicious.com
+To: victim@company.com
+Subject: Urgent: Verify Your Account NOW
+Date: Mon, 15 Sep 2026 10:30:00 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear User,
+
+Your account has been compromised. Please verify immediately at:
+https://secure-bank-verify.com/login
+
+Or click here: http://195.168.1.50/phish
+
+Contact support: admin@fake-bank.io
+
+Best regards,
+Security Team

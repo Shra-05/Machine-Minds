@@ -1,17 +1,38 @@
-﻿import os
+import os
+from pymongo import MongoClient
 
-class Settings:
-    APP_NAME = "TrustMail"
-    APP_VERSION = "1.0.0"
-    API_PORT = 8000
-    DEBUG = True
-    
-    MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
-    DB_NAME = "trustmail"
-    
-    FABRIC_CONFIG = {
-        "channel": "trustmail",
-        "chaincode": "evidence-logging"
-    }
+# MongoDB Configuration
+MONGODB_LOCAL = "mongodb://localhost:27017"
+MONGODB_ATLAS = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 
-settings = Settings()
+# Use local MongoDB for now
+MONGODB_URL = MONGODB_LOCAL
+DB_NAME = "machine_minds_sih"
+COLLECTION_EMAILS = "extracted_emails"
+COLLECTION_IOCS = "iocs"
+
+# Database Connection
+def get_db_connection():
+    """Connect to MongoDB"""
+    try:
+        client = MongoClient(MONGODB_URL, serverSelectionTimeoutMS=5000)
+        client.admin.command('ping')  # Test connection
+        db = client[DB_NAME]
+        print(f"? Connected to MongoDB: {DB_NAME}")
+        return db
+    except Exception as e:
+        print(f"? MongoDB connection failed: {e}")
+        print(f"  Make sure MongoDB is running: mongod")
+        raise
+
+# FastAPI Configuration
+FASTAPI_HOST = "0.0.0.0"
+FASTAPI_PORT = 8000
+FASTAPI_RELOAD = True
+
+# Dataset paths
+DATASET_DIR = r"C:\Users\HP\Downloads\archive (3)"
+
+# Batch processing
+BATCH_SIZE = 100
+MAX_WORKERS = 4
