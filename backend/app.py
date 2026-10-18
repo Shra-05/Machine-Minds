@@ -17,6 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from backend.modules.evidence_routes import router as evidence_router
+app.include_router(evidence_router)
+
 db = get_db_connection()
 
 class EmailInput(BaseModel):
